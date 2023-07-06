@@ -52,8 +52,7 @@ class TempMail:
     def inbox(self) -> list:
         response = self.__session.post(f'{self.url}/getInbox', headers=self.__headers)
         try:
-            json = json_decode(response.content)
-            return json
+            return json_decode(response.content)
         except Exception:
             raise TempMailException('inbox', 'request', response, self.debug_response)
 
